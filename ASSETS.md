@@ -48,3 +48,10 @@ All free-licence (Pexels Licence / Unsplash Licence). Images are illustrative; t
 - `oil-bubbles.jpg` is the home-page liposomal card visual (replaced the abstract leaf-droplets shot after a usability audit flagged it as too metaphorical).
 - Facility / lab / logistics photos are always captioned "Reference imagery · illustrative" on the site; they are never presented as Zoelex Pharma's own facility.
 - Before launch, the client may replace these with Zoelex's own product photography (recommended for gummies/softgels at minimum).
+
+## Brand and manufacturing imagery
+
+- `zoelex-logo.jpg` — supplied Zoelex Pharma logo. Displayed in the site header and footer.
+- `unsplash-manufacturing.jpg` — photo by Glsun Mall, “man in blue jacket wearing blue mask.” Unsplash Licence. Source: https://unsplash.com/photos/man-in-blue-jacket-wearing-blue-mask-WNX6uk-1LV4
+
+The Unsplash manufacturing image is illustrative and does not depict Zoelex Pharma's facility.

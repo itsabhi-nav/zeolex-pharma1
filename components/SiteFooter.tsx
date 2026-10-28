@@ -11,24 +11,21 @@ export default function SiteFooter() {
           <div>
             <Link href="/" className="brand" style={{ paddingInline: 0 }}>
               <Image
-                src="/images/logo-wordmark.png"
+                src="/images/zoelex-logo.jpg"
                 alt="Zoelex Pharma"
-                width={634}
-                height={230}
-                className="brand__wordmark"
+                width={768}
+                height={768}
+                className="brand__logo"
               />
+              <span className="brand__descriptor" aria-hidden="true">
+                <strong>Zoelex Pharma</strong>
+                <small>Nutraceutical manufacturing</small>
+              </span>
             </Link>
             <p style={{ marginTop: 20, maxWidth: "40ch", fontSize: "var(--fs-base)" }}>
-              Innovative nutraceutical and Ayurvedic manufacturing in vegan
-              gummies, oral thin films, softgels and liposomal formats.
-              GMP&nbsp;·&nbsp;FSSAI&nbsp;·&nbsp;GLP certified operations in
-              Pune, India.
+              Contract and private-label manufacturing of gummies, oral thin
+              films, softgels and liposomal products in Pune, India.
             </p>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 22 }}>
-              <span className="chip">GMP</span>
-              <span className="chip">FSSAI</span>
-              <span className="chip">GLP</span>
-            </div>
           </div>
           <nav aria-label="Quick links">
             <h2>Site</h2>

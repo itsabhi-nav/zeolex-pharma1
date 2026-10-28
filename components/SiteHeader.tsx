@@ -49,13 +49,17 @@ export default function SiteHeader() {
         <div className="hdr__bar">
           <Link href="/" className="brand" aria-label="Zoelex Pharma home">
             <Image
-              src="/images/logo-wordmark.png"
+              src="/images/zoelex-logo.jpg"
               alt="Zoelex Pharma"
-              width={634}
-              height={230}
-              className="brand__wordmark"
+              width={768}
+              height={768}
+              className="brand__logo"
               priority
             />
+            <span className="brand__descriptor" aria-hidden="true">
+              <strong>Zoelex Pharma</strong>
+              <small>Nutraceutical manufacturing</small>
+            </span>
           </Link>
           <nav className="hnav" aria-label="Primary">
             {NAV_ITEMS.map((item) => (

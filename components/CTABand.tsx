@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function CTABand({
   title = "Have a product idea? Let's build it together.",
-  copy = "Share your concept and our team will get back within 24/48 hours with formulation options and a quote.",
+  copy = "Share your product brief and target market to discuss suitable formats and next steps.",
 }: {
   title?: React.ReactNode;
   copy?: string;

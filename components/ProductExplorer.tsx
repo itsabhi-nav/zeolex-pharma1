@@ -1,85 +1,102 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { PRODUCT_CATEGORIES } from "@/lib/products";
 
 const FORMAT_LABELS: Record<string, string> = {
   Gummies: "Gummies",
-  OTF: "Thin Films",
+  OTF: "Thin films",
   Softgels: "Softgels",
   Liposomal: "Liposomal",
 };
 
-export default function ProductExplorer({
-  defaultOpen = 0,
-}: {
-  defaultOpen?: number;
-}) {
-  const [open, setOpen] = useState<number | null>(defaultOpen);
+const CATEGORY_IMAGES: Record<string, { src: string; alt: string }> = {
+  "Vitamins & Minerals": {
+    src: "/images/softgels-marble.jpg",
+    alt: "Golden softgel capsules on a pale surface",
+  },
+  Immunity: {
+    src: "/images/orange-macro.jpg",
+    alt: "Close-up of fresh citrus fruit",
+  },
+  "Sleep & Stress": {
+    src: "/images/ashwagandha.jpg",
+    alt: "Green ashwagandha plants",
+  },
+  "Energy & Focus": {
+    src: "/images/gummies-macro.jpg",
+    alt: "Colourful gummy supplements",
+  },
+  "Beauty & Skin": {
+    src: "/images/droplets.jpg",
+    alt: "Water droplets on a fresh green leaf",
+  },
+  "Heart & Joint": {
+    src: "/images/softgels-2.jpg",
+    alt: "Amber softgel capsules",
+  },
+  "Digestive Health": {
+    src: "/images/effervescent.jpg",
+    alt: "A person taking a dissolvable supplement",
+  },
+  "Kids' Nutrition": {
+    src: "/images/gummies-spill.jpg",
+    alt: "Gummy supplements beside a clear container",
+  },
+  "Ayurvedic Range": {
+    src: "/images/turmeric.jpg",
+    alt: "Fresh turmeric root and turmeric powder",
+  },
+  "Women's Health": {
+    src: "/images/gummies-jar.jpg",
+    alt: "Gummy supplements in a clear jar",
+  },
+};
 
+export default function ProductExplorer() {
   return (
-    <div className="explorer">
-      {PRODUCT_CATEGORIES.map((cat, i) => {
-        const isOpen = open === i;
+    <div className="category-grid">
+      {PRODUCT_CATEGORIES.map((category, index) => {
+        const image = CATEGORY_IMAGES[category.name];
+
         return (
-          <div className="ex-row" data-open={isOpen} key={cat.name}>
-            <h3 style={{ margin: 0 }}>
-              <button
-                className="ex-head"
-                aria-expanded={isOpen}
-                aria-controls={`cat-${i}`}
-                id={`cat-h-${i}`}
-                onClick={() => setOpen(isOpen ? null : i)}
-              >
-                <span className="cat">{cat.name}</span>
-                <span className="fmt-chips" aria-label="Available formats">
-                  {cat.formats.map((f) => (
-                    <span className="chip chip--paper" key={f}>
-                      {FORMAT_LABELS[f]}
+          <article className="category-card" key={category.name}>
+            <div className="category-card__image">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+              />
+              <span className="category-card__index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <div className="category-card__content">
+              <h3>{category.name}</h3>
+              <span className="category-card__label">Example product ideas</span>
+              <ul className="category-card__examples">
+                {category.examples.map((example) => (
+                  <li key={example}>{example}</li>
+                ))}
+              </ul>
+              <div className="category-card__formats">
+                <span>Formats</span>
+                <div>
+                  {category.formats.map((format) => (
+                    <span className="chip chip--paper" key={format}>
+                      {FORMAT_LABELS[format]}
                     </span>
                   ))}
-                </span>
-                <span className="caret" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 6l5 5 5-5" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-            <div
-              className="ex-body"
-              id={`cat-${i}`}
-              role="region"
-              aria-labelledby={`cat-h-${i}`}
-            >
-              <div>
-                <div className="ex-pad">
-                  <ul>
-                    {cat.examples.map((ex) => (
-                      <li key={ex}>{ex}</li>
-                    ))}
-                  </ul>
-                  <div className="ex-cta">
-                    <p className="mono-label mono-label--paper">Available in</p>
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                      {cat.formats.map((f) => (
-                        <span className="chip chip--paper" key={f}>
-                          {FORMAT_LABELS[f]}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      href={`/contact?category=${encodeURIComponent(cat.name)}`}
-                      className="btn btn--primary btn--sm"
-                    >
-                      Enquire <span className="arrow">→</span>
-                    </Link>
-                  </div>
                 </div>
               </div>
+              <Link
+                href={`/contact?category=${encodeURIComponent(category.name)}`}
+                className="category-card__link"
+              >
+                Discuss this category <span aria-hidden="true">→</span>
+              </Link>
             </div>
-          </div>
+          </article>
         );
       })}
     </div>

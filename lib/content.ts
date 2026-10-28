@@ -9,44 +9,38 @@ export const SERVICES: Service[] = [
   {
     num: "01",
     name: "Contract Manufacturing",
-    copy:
-      "Scale production with confidence. We manufacture your formulation to your specifications, with full batch documentation and quality testing.",
-    value: "Your formula, made to spec, with the paperwork to prove it.",
+    copy: "Manufacture your approved formulation to an agreed specification.",
+    value: "Your formulation, made to the agreed specification.",
   },
   {
     num: "02",
     name: "Private Label / White Label",
-    copy:
-      "Launch your own brand quickly using our proven formulations. Pick a product, add your branding, and go to market in weeks, not months.",
-    value: "Ready formulations. Your brand on the shelf, fast.",
+    copy: "Choose a suitable ready formulation and launch it under your brand.",
+    value: "Ready-formulation options for your brand.",
   },
   {
     num: "03",
     name: "Formulation & R&D",
-    copy:
-      "Our scientists develop custom formulas, optimise taste and texture, and run stability studies, balancing efficacy, cost and consumer appeal.",
-    value: "From ingredient list to validated, stable formulation.",
+    copy: "Review ingredients, format and product requirements with our team.",
+    value: "Discuss formulation feasibility and product requirements.",
   },
   {
     num: "04",
     name: "Packaging & Design Support",
-    copy:
-      "Bottles, jars, pouches, blister packs and sachets. We support label compliance and can connect you with design partners.",
-    value: "The right pack for the format, market and price point.",
+    copy: "Discuss packaging options for your selected format and target market.",
+    value: "Packaging options aligned to format and market.",
   },
   {
     num: "05",
     name: "Regulatory & Documentation",
-    copy:
-      "COA, MSDS, stability data, product dossiers and FSSAI / export documentation to help your product clear market requirements.",
-    value: "Documentation that keeps your launch moving.",
+    copy: "Review available product and batch documents for your market.",
+    value: "Product and batch documentation, as applicable.",
   },
   {
     num: "06",
     name: "Export Support",
-    copy:
-      "We ship to brand owners and distributors worldwide and help with the paperwork required for international markets.",
-    value: "Worldwide shipping with the paperwork handled.",
+    copy: "Discuss destination-market requirements and export documentation.",
+    value: "Export requirements reviewed for your destination market.",
   },
 ];
 
@@ -81,16 +75,16 @@ export const DIFFERENTIATORS = [
   {
     name: "Format Specialists",
     copy:
-      "Four advanced delivery formats under one roof, grow your range with a single partner.",
+      "Four dosage formats for brands developing a nutraceutical product range.",
   },
   {
     name: "Certified Quality",
-    copy: "GMP, FSSAI and GLP certified operations with full documentation.",
+    copy: "GMP, FSSAI and GLP certified operations.",
   },
   {
     name: "Vegan & Clean-Label",
     copy:
-      "Plant-based gummies and natural colours and flavours for today's conscious consumer.",
+      "Pectin-based gummies with gelatin-free options.",
   },
   {
     name: "Ayurveda + Modern Science",
@@ -98,17 +92,16 @@ export const DIFFERENTIATORS = [
   },
   {
     name: "Flexible MOQs",
-    copy:
-      "Practical minimum order quantities for startups and established brands alike.",
+    copy: "Minimum order quantities are discussed for each format and project.",
   },
   {
     name: "Speed to Market",
-    copy: "Ready formulations and an experienced team cut your launch time.",
+    copy: "Discuss ready formulations and a production plan for your brief.",
   },
   {
     name: "Global Outlook",
     copy:
-      "Export-ready documentation and experience serving international clients.",
+      "Discuss documentation and requirements for your intended market.",
   },
 ] as const;
 
@@ -143,7 +136,7 @@ export const QUALITY_STEPS = [
 export const FAQS = [
   {
     q: "What is your minimum order quantity (MOQ)?",
-    a: "MOQs depend on the format and formulation. Contact our team to discuss your product requirements.",
+    a: "Minimum order quantities vary by format and formulation. Share your brief to discuss current requirements.",
   },
   {
     q: "Do you offer private label manufacturing?",
@@ -151,7 +144,7 @@ export const FAQS = [
   },
   {
     q: "Can you develop a custom formulation?",
-    a: "Absolutely. Our R&D team develops custom formulas, including taste, texture and stability optimisation.",
+    a: "Share your brief with our team. Formulation feasibility and scope are reviewed for each product.",
   },
   {
     q: "Are your gummies vegan?",
@@ -159,7 +152,7 @@ export const FAQS = [
   },
   {
     q: "What is an oral thin film?",
-    a: "A thin, stamp-sized strip that dissolves on the tongue in seconds, delivering nutrients without water or swallowing.",
+    a: "A thin strip that dissolves on the tongue. It is designed to be taken without water.",
   },
   {
     q: "How long from sample to production?",
@@ -167,7 +160,7 @@ export const FAQS = [
   },
   {
     q: "Do you export?",
-    a: "Yes. We supply clients internationally and provide the required export documentation.",
+    a: "Contact us with your destination market so product availability and documentation requirements can be discussed.",
   },
   {
     q: "Which certifications do you hold?",
@@ -175,6 +168,6 @@ export const FAQS = [
   },
   {
     q: "What is the shelf life of your products?",
-    a: "Shelf life depends on the individual formulation and is confirmed through stability studies. Most product categories are designed for 12–24 months; the exact period for your formulation is confirmed with supporting stability data.",
+    a: "Shelf life depends on the individual formulation and is confirmed through the relevant stability data.",
   },
 ] as const;

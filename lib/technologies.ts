@@ -20,7 +20,7 @@ export const TECHNOLOGIES: Technology[] = [
     shortName: "Gummies",
     tagline: "Plant-based · Great taste",
     summary:
-      "Great-tasting, plant-based gummies with precise dosing.",
+      "Pectin-based gummies with gelatin-free, sugar-free and low-sugar options.",
     longIntro:
       "Plant-based, pectin-set gummies that taste great and deliver accurate doses. Free from gelatin and suitable for vegetarian and vegan consumers.",
     features: [
@@ -36,13 +36,13 @@ export const TECHNOLOGIES: Technology[] = [
     index: "02",
     name: "Oral Thin Films",
     shortName: "Films",
-    tagline: "Dissolves in seconds",
-    summary: "Dissolve on the tongue in seconds. No water needed.",
+    tagline: "Dissolves on the tongue",
+    summary: "Thin strips that dissolve on the tongue, without water.",
     longIntro:
-      "Ultra-thin strips that dissolve on the tongue in seconds. No water, no swallowing, no fuss.",
+      "Thin strips that dissolve on the tongue and are designed to be taken without water.",
     features: [
-      "Fast onset and easy dosing on the go",
-      "Ideal for children, elderly users and people who dislike pills",
+      "Portable, individually sealed sachets",
+      "An option for people who prefer not to swallow tablets",
       "Suitable for vitamins (B12, D3), melatonin, caffeine, herbal actives and more*",
       "Individually sealed sachets for freshness and portability",
     ],
@@ -71,9 +71,9 @@ export const TECHNOLOGIES: Technology[] = [
     index: "04",
     name: "Liposomal Formulations",
     shortName: "Liposomal",
-    tagline: "Advanced encapsulation",
+    tagline: "Phospholipid-based",
     summary:
-      "Advanced encapsulation designed to support formulation stability and delivery.",
+      "Phospholipid-based formulations in liquid and spray options.",
     longIntro:
       "Actives enclosed in phospholipid layers to support better absorption and stability.",
     features: [

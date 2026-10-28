@@ -1,14 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import ProcessTimeline from "@/components/ProcessTimeline";
 import CTABand from "@/components/CTABand";
-import Marquee from "@/components/Marquee";
-import CountUp from "@/components/CountUp";
-import Parallax from "@/components/Parallax";
-import { TECHNOLOGIES } from "@/lib/technologies";
-import { PRODUCT_CATEGORIES } from "@/lib/products";
-import { SERVICES, DIFFERENTIATORS } from "@/lib/content";
+import { SERVICES } from "@/lib/content";
+import { TECHNOLOGIES, type Format } from "@/lib/technologies";
 import { PAGE_META } from "@/lib/site";
 
 export const metadata = {
@@ -17,399 +12,276 @@ export const metadata = {
   alternates: { canonical: "/" },
 };
 
-const STACK_TINTS = ["stack__card--1", "stack__card--2", "stack__card--3", "stack__card--4"];
+const FORMAT_DETAILS: Record<Format, string> = {
+  gummies: "Pectin-based, gelatin-free",
+  otf: "Thin strips, no water needed",
+  softgels: "For oils and fat-soluble actives",
+  liposomal: "Phospholipid-based formulations",
+};
 
-// one unique image per format, never repeated elsewhere on the site
-const STACK_IMG: Record<string, { src: string; alt: string }> = {
+const FORMAT_IMAGES: Record<Format, { src: string; alt: string }> = {
   gummies: {
     src: "/images/gummies-spill.jpg",
-    alt: "Vegan gummies spilling from a jar onto a bright surface",
+    alt: "Red gummy supplements spilling from a clear container",
   },
   otf: {
-    src: "/images/films-pastel.jpg",
-    alt: "Warm translucent glass forms catching soft light",
+    src: "/images/effervescent.jpg",
+    alt: "A person holding a dissolvable supplement",
   },
   softgels: {
-    src: "/images/softgels-vibrant.jpg",
-    alt: "Golden softgel capsules in close-up",
+    src: "/images/softgels-2.jpg",
+    alt: "Amber softgel capsules in natural light",
   },
   liposomal: {
-    src: "/images/oil-bubbles.jpg",
-    alt: "Oil bubbles suspended in liquid, a macro view of encapsulation",
+    src: "/images/droplets.jpg",
+    alt: "Water droplets on a green leaf",
   },
 };
+
+const FLOW = [
+  { title: "Share your brief", copy: "Tell us your ingredients, audience and target market." },
+  { title: "Review feasibility", copy: "Discuss a suitable format, formulation and pack." },
+  { title: "Approve a sample", copy: "Review the proposed product before production." },
+  { title: "Plan production", copy: "Confirm specifications, quantities and timelines." },
+];
 
 export default function HomePage() {
   return (
     <main id="main">
-      {/* ============ HERO ============ */}
       <section className="hero">
         <div className="hero__media" aria-hidden="true">
           <Image
-            src="/images/lipo-copper.jpg"
+            src="/images/unsplash-manufacturing.jpg"
             alt=""
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 60vw"
+            sizes="100vw"
           />
           <div className="hero__scrim" />
         </div>
         <div className="wrap hero__inner">
+          <p className="eyebrow hero__eyebrow">
+            Nutraceutical manufacturing <span aria-hidden="true">·</span> Pune, India
+          </p>
           <h1 className="display h1">
-            <span className="hero__line">
-              <span>Wellness,</span>
-            </span>
-            <span className="hero__line">
-              <span>reimagined in</span>
-            </span>
-            <span className="hero__line">
-              <span>
-                every <em>format</em>.
-              </span>
-            </span>
+            A manufacturing partner for your <em>next product.</em>
           </h1>
-          <p className="lede hero__lede hero__meta">
-            Zoelex Pharma manufactures vegan gummies, oral thin films,
-            softgels and liposomal nutraceuticals for brands across the
-            world, from formulation to finished pack.
+          <p className="lede hero__lede">
+            Zoelex Pharma makes nutraceutical products for brands, supporting
+            formulation, sampling and finished packs.
           </p>
           <div className="hero__ctas">
             <Link href="/contact" className="btn btn--primary">
-              Request a Quote <span className="arrow">→</span>
+              Discuss your product <span className="arrow">→</span>
             </Link>
             <Link href="/technologies" className="btn btn--ghost">
-              Explore Our Technologies <span className="arrow">→</span>
+              Explore formats <span className="arrow">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ============ EDITORIAL INTRO ============ */}
-      <section className="section section--deep">
-        <div className="wrap">
-          <div className="split">
-            <Reveal variant="left">
-              <div className="frame" style={{ transform: "rotate(-1.4deg)" }}>
-                <Parallax strength={26}>
-                  <Image
-                    src="/images/effervescent.jpg"
-                    alt="An effervescent tablet dissolving into a glass of water"
-                    width={1600}
-                    height={1200}
-                  />
-                </Parallax>
-              </div>
-            </Reveal>
-            <Reveal variant="right" delay={120}>
-              <p className="eyebrow">The company</p>
-              <h2 className="display h2" style={{ margin: "24px 0 28px" }}>
-                Supplements should be <em>easy to take</em> as they are effective.
-              </h2>
-              <p className="lede" style={{ marginBottom: 20 }}>
-                At Zoelex Pharma, we believe supplements should be as easy to
-                take as they are effective. From our facility in Pune, India,
-                we develop and manufacture next-generation nutraceutical and
-                Ayurvedic products in formats people actually enjoy.
-              </p>
-              <p className="lede">
-                Our GMP, FSSAI and GLP certified operations help brands launch
-                faster, scale reliably and win consumer trust.
-              </p>
-              <div style={{ marginTop: 34, display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <Link href="/about" className="btn btn--primary btn--sm">
-                  Our Story <span className="arrow">→</span>
-                </Link>
-                <Link href="/about#why-zoelex" className="btn btn--ghost btn--sm">
-                  Why Zoelex <span className="arrow">→</span>
-                </Link>
-              </div>
-              <p className="hero__certs" style={{ marginTop: 22 }}>
-                GMP · FSSAI · GLP certified
-              </p>
-            </Reveal>
-          </div>
-
-          {/* Stats */}
-          <div className="stats" style={{ marginTop: "clamp(64px, 9vw, 120px)" }}>
-            <Reveal>
-              <span className="big">
-                <CountUp to={4} />
-              </span>
-              <span className="mono-label mono-label--paper">Advanced dosage formats</span>
-            </Reveal>
-            <Reveal delay={90}>
-              <span className="big">3</span>
-              <span className="mono-label mono-label--paper">Certified operations</span>
-              <span className="note note--paper" style={{ marginTop: 2 }}>
-                GMP · FSSAI · GLP
-              </span>
-            </Reveal>
-            <Reveal delay={180}>
-              <span className="big">
-                <CountUp to={100} suffix="%" />
-              </span>
-              <span className="mono-label mono-label--paper">
-                Vegan gummy options, pectin-based, gelatin-free
-              </span>
-            </Reveal>
-            <Reveal delay={270}>
-              <span className="big">
-                <abbr title="Figure to be published once verified by the client" style={{ textDecoration: "none" }}>
-                  XX<sup>+</sup>
-                </abbr>
-              </span>
-              <span className="mono-label mono-label--paper">Countries served</span>
-              <span className="note note--paper" style={{ marginTop: 2 }}>
-                Pending verification
-              </span>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ STICKY FORMAT STORY ============ */}
-      <section className="section section--void" id="formats">
-        <div className="wrap">
-          <div className="section-head section-head--split" style={{ position: "relative" }}>
-            <div>
-              <Reveal variant="up">
-                <p className="eyebrow">The technologies · a scroll story</p>
-                <h2 className="display h2" style={{ marginTop: 22 }}>
-                  Four formats. <em>One</em> partner.
-                </h2>
-              </Reveal>
+      <div className="format-marquee" aria-label="Formats we manufacture">
+        <div className="format-marquee__track" aria-hidden="true">
+          {[0, 1].map((copy) => (
+            <div className="format-marquee__group" key={copy}>
+              <span>Vegan Gummies</span>
+              <i />
+              <span>Oral Thin Films</span>
+              <i />
+              <span>Softgels</span>
+              <i />
+              <span>Liposomal Formulations</span>
+              <i />
             </div>
-            <Reveal variant="up" delay={120}>
-              <p className="lede">
-                The format is the product experience. Keep scrolling, each
-                delivery technology arrives with its own material character.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-        <div className="stack" style={{ maxWidth: "var(--max-w)", marginInline: "auto" }}>
-          {TECHNOLOGIES.map((t, idx) => (
-            <article className={`stack__card ${STACK_TINTS[idx]}`} key={t.id}>
-              <div>
-                <div className="idx-line">
-                  <span className="chip">{t.tagline}</span>
-                </div>
-                <h3>{t.name}</h3>
-                <p className="big-copy">{t.longIntro}</p>
-                <ul className="flist" style={{ marginTop: 26 }}>
-                  {t.features.map((f) => (
-                    <li key={f}>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <div style={{ marginTop: 32 }}>
-                  <Link
-                    href={`/contact?format=${encodeURIComponent(
-                      t.id === "otf" ? "Oral Thin Films" : t.shortName
-                    )}`}
-                    className="btn btn--sm btn--primary"
-                  >
-                    Discuss {t.shortName} <span className="arrow">→</span>
-                  </Link>
-                </div>
-              </div>
-              <div className="stack__viz">
-                <Image
-                  src={STACK_IMG[t.id].src}
-                  alt={STACK_IMG[t.id].alt}
-                  fill
-                  sizes="(max-width: 900px) 90vw, 480px"
-                />
-              </div>
-            </article>
           ))}
         </div>
-        <div className="wrap" style={{ marginTop: 18 }}>
-          <p className="note">
-            *Ingredient suitability depends on formulation stability studies.
-            Our R&amp;D team will advise on feasibility.
-          </p>
+      </div>
+
+      <section className="trust-band" aria-label="Manufacturing overview">
+        <div className="wrap trust-band__grid">
+          <div className="trust-band__intro">
+            <span className="trust-band__eyebrow">At a glance</span>
+            <strong>Manufacturing for wellness brands</strong>
+          </div>
+          <div className="trust-band__item">
+            <span>01</span>
+            <strong>GMP</strong>
+            <small>Certified operations</small>
+          </div>
+          <div className="trust-band__item">
+            <span>02</span>
+            <strong>FSSAI</strong>
+            <small>Certified operations</small>
+          </div>
+          <div className="trust-band__item">
+            <span>03</span>
+            <strong>GLP</strong>
+            <small>Certified operations</small>
+          </div>
+          <div className="trust-band__item trust-band__item--location">
+            <span aria-hidden="true">⌖</span>
+            <strong>Pune, India</strong>
+            <small>Manufacturing base</small>
+          </div>
         </div>
       </section>
 
-      {/* ============ PROCESS ============ */}
-      <section className="section section--deep">
-        <div className="hairgrid" aria-hidden="true" style={{ maskImage: "radial-gradient(60% 80% at 20% 20%, #000, transparent)" }} />
+      <section className="section section--paper" id="formats">
         <div className="wrap">
-          <div className="section-head" style={{ position: "relative" }}>
-            <Reveal variant="up">
-              <p className="eyebrow">The partnership</p>
-              <h2 className="display h2" style={{ marginTop: 22, maxWidth: "22ch" }}>
-                From a shared idea to a <em>shipped</em> product.
+          <div className="section-head section-head--split">
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">Product formats</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                Four formats. One manufacturing partner.
               </h2>
             </Reveal>
+            <Reveal delay={90}>
+              <p className="lede lede--paper">
+                Choose a format around your ingredients, audience and product brief.
+                Our team can help you assess the fit.
+              </p>
+            </Reveal>
           </div>
-          <Reveal variant="up">
-            <ProcessTimeline />
-          </Reveal>
-          <div style={{ marginTop: 48 }}>
-            <Link href="/about#why-zoelex" className="btn btn--ghost btn--sm">
-              How we work <span className="arrow">→</span>
-            </Link>
+          <div className="format-grid">
+            {TECHNOLOGIES.map((format, index) => (
+              <Reveal key={format.id} delay={index * 70}>
+                <Link href={`/technologies#${format.id}`} className="format-card">
+                  <span className="format-card__image">
+                    <Image
+                      src={FORMAT_IMAGES[format.id].src}
+                      alt={FORMAT_IMAGES[format.id].alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 25vw"
+                    />
+                    <span className="format-card__index">{format.index}</span>
+                  </span>
+                  <span className="format-card__body">
+                    <span className="format-card__title">
+                      <strong>{format.name}</strong>
+                      <span aria-hidden="true">→</span>
+                    </span>
+                    <span className="format-card__copy">{format.summary}</span>
+                    <span className="format-card__detail">{FORMAT_DETAILS[format.id]}</span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============ CATEGORIES PREVIEW ============ */}
+      <section className="section section--moss home-services">
+        <div className="wrap">
+          <div className="section-head section-head--split">
+            <Reveal>
+              <p className="eyebrow">Support for your brand</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                From the first brief to a finished pack.
+              </h2>
+            </Reveal>
+            <Reveal delay={90}>
+              <p className="lede">
+                Work with one team across product development and manufacturing.
+                Scope and timelines are confirmed for each brief.
+              </p>
+            </Reveal>
+          </div>
+          <div className="home-service-grid">
+            {SERVICES.map((service, index) => (
+              <Reveal key={service.num} delay={(index % 3) * 70}>
+                <Link href="/manufacturing#services" className="home-service home-service--light">
+                  <span className="format-card__number">{service.num}</span>
+                  <h3>{service.name}</h3>
+                  <p>{service.value}</p>
+                  <span className="home-service__link">Explore service</span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--deep">
+        <div className="wrap split">
+          <Reveal variant="left">
+            <div className="frame">
+              <Image
+                src="/images/lab-scientists.jpg"
+                alt="Laboratory team working together at a bench"
+                width={1600}
+                height={1200}
+                sizes="(max-width: 900px) 100vw, 48vw"
+              />
+            </div>
+          </Reveal>
+          <Reveal variant="right" delay={100}>
+            <p className="eyebrow eyebrow--paper">Quality and process</p>
+            <h2 className="display h2" style={{ margin: "18px 0" }}>
+              Quality is built into the process.
+            </h2>
+            <p className="lede lede--paper">
+              Zoelex Pharma operates under GMP, FSSAI and GLP certifications.
+              Product requirements and supporting documentation are reviewed
+              with each manufacturing brief.
+            </p>
+            <ul className="checks checks--paper" style={{ marginTop: 20 }}>
+              <li>Raw-material review and in-process checks</li>
+              <li>Product testing and batch documentation</li>
+              <li>Format and packaging requirements agreed before production</li>
+            </ul>
+            <Link
+              href="/manufacturing#quality"
+              className="btn btn--primary btn--sm"
+              style={{ marginTop: 22 }}
+            >
+              How manufacturing works <span className="arrow">→</span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section section--paper">
         <div className="wrap">
-          <div className="section-head section-head--split">
-            <div style={{ position: "relative" }}>
-              <Reveal variant="up">
-                <p className="eyebrow eyebrow--paper">Product categories</p>
-                <h2 className="display h2" style={{ marginTop: 22 }}>
-                  Wellness, across <em style={{ color: "var(--coral-deep)" }}>every shelf</em>.
-                </h2>
-              </Reveal>
-            </div>
-            <Reveal variant="up" delay={110}>
-              <p className="lede lede--paper">
-                Ten categories of tested formulations, each available in one
-                or more of our four formats. Choose ready-made, or let R&amp;D
-                build yours from scratch.
-              </p>
-            </Reveal>
-          </div>
-          <div className="cat-preview">
-            {PRODUCT_CATEGORIES.map((c, i) => (
-              <Reveal key={c.name} delay={(i % 5) * 70} variant="scale">
-                <Link href={`/technologies#categories`} className="catcard">
-                  <span className="num" style={{ color: "var(--coral-deep)" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="catcard__name">{c.name}</span>
-                  <span className="catcard__fmt">
-                    {c.formats.length} format{c.formats.length > 1 ? "s" : ""}
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <div style={{ marginTop: 44 }}>
-            <Link href="/technologies#categories" className="btn btn--primary btn--sm">
-              Explore All Categories <span className="arrow">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ SERVICES ============ */}
-      <section className="section section--void">
-        <div className="wrap">
           <div className="section-head">
-            <Reveal variant="up">
-              <p className="eyebrow">Manufacturing services</p>
-              <h2 className="display h2" style={{ marginTop: 22 }}>
-                Everything after the <em>idea</em>.
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">How to get started</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                A clear path from idea to production.
               </h2>
             </Reveal>
           </div>
-          <div className="grid-3">
-            {SERVICES.map((s, i) => (
-              <Reveal key={s.num} delay={(i % 3) * 90} variant="up">
-                <Link
-                  href={`/manufacturing#services`}
-                  className="svc-mini"
-                >
-                  <span className="num">{s.num}</span>
-                  <h3>{s.name}</h3>
-                  <p>{s.value}</p>
-                </Link>
+          <ol className="flow-grid">
+            {FLOW.map((step, index) => (
+              <Reveal
+                as="li"
+                className="flow-step"
+                key={step.title}
+                delay={index * 70}
+              >
+                <span className="flow-step__num">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ QUALITY ============ */}
-      <section className="section section--paper" style={{ paddingBlock: 0 }}>
-        <div className="wrap">
-          <div className="split" style={{ paddingBlock: "clamp(84px,11vw,150px)" }}>
-            <Reveal variant="left">
-              <div className="frame">
-                <Parallax strength={22}>
-                  <Image
-                    src="/images/agar.jpg"
-                    alt="Microbiology agar plates prepared for quality-control testing"
-                    width={1600}
-                    height={1200}
-                  />
-                </Parallax>
-              </div>
-            </Reveal>
-            <Reveal variant="right" delay={140}>
-              <p className="eyebrow eyebrow--paper">Infrastructure &amp; quality</p>
-              <h2 className="display h2" style={{ margin: "22px 0 26px" }}>
-                Built for <em style={{ color: "var(--coral-deep)" }}>precision</em>. Certified for trust.
-              </h2>
-              <ul className="checks checks--paper">
-                {[
-                  "Dedicated lines for gummies, oral thin films, softgels and liposomal products",
-                  "Controlled temperature and humidity zones",
-                  "In-house quality control laboratory",
-                  "Raw-material testing and vendor qualification",
-                  "Stability studies, batch traceability and COA with every lot",
-                ].map((q) => (
-                  <li key={q} style={{ color: "var(--tx-paper-muted)" }}>
-                    {q}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/manufacturing#quality" className="btn btn--primary btn--sm" style={{ marginTop: 28 }}>
-                Inside Our Facility <span className="arrow">→</span>
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ WHY ZOELEX STRIP ============ */}
-      <section className="section section--moss">
-        <div className="wrap">
-          <div className="section-head section-head--split">
-            <div style={{ position: "relative" }}>
-              <Reveal variant="up">
-                <p className="eyebrow">Why Zoelex</p>
-                <h2 className="display h2" style={{ marginTop: 22 }}>
-                  The partner behind <em>great</em> wellness brands.
-                </h2>
-              </Reveal>
-            </div>
-            <Reveal variant="up" delay={110}>
-              <p className="lede">
-                Format specialisation, certified quality and a global outlook
-                the reasons brands build their ranges with us.
+          </ol>
+          <Reveal>
+            <div className="process-note">
+              <span className="process-note__mark" aria-hidden="true">i</span>
+              <p>
+                Product scope, feasibility, minimum quantities and timelines are
+                reviewed with you before production is confirmed.
               </p>
-            </Reveal>
-          </div>
-          <div className="values">
-            {DIFFERENTIATORS.map((d, i) => (
-              <Reveal className="value" key={d.name} delay={(i % 4) * 70} variant="up">
-                <span className="vn">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{d.name}</h3>
-                <p>{d.copy}</p>
-              </Reveal>
-            ))}
-          </div>
-          <div style={{ marginTop: 42 }}>
-            <Link href="/about#why-zoelex" className="btn btn--primary btn--sm">
-              Full business case <span className="arrow">→</span>
-            </Link>
-          </div>
+              <Link href="/manufacturing">See manufacturing support <span aria-hidden="true">→</span></Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ============ CLOSING CTA ============ */}
-      <CTABand />
-
-      {/* ============ TASTE STRIP ============ */}
-      <Marquee reverse />
+      <CTABand
+        title="Have a product brief?"
+        copy="Share your idea, intended market and preferred format. We’ll discuss the next steps with you."
+      />
     </main>
   );
 }

@@ -1,9 +1,33 @@
-# Zoelex Pharma — Implementation Report (v5)
+# Zoelex Pharma — Implementation Report (v7)
 
 ## What was built
-A premium B2B site for Zoelex Pharma, now in its **fifth visual pass (v5
-"Teal & Ivory" final brand direction)**. Next.js 15 (App Router) ·
+A concise B2B site for Zoelex Pharma, focused on nutraceutical manufacturing.
+Next.js 15 (App Router) ·
 React 19 · TypeScript strict · zero runtime dependencies beyond Next/React.
+
+## Current visual direction
+- **Palette:** Zoelex logo blue (`#0A508E`), pale blue, and white.
+- **Typography:** Arial/Helvetica throughout, with no external font requests.
+- **Page structure:** manufacturer overview, product formats, manufacturing
+  support, quality process, export enquiries, and direct contact paths.
+- **Content:** concise buyer-facing copy; unverified capacity, country,
+  founding-year, testimonial, and catalogue placeholders are not shown.
+- **Imagery:** user-supplied logo in the header/footer; stock images are
+  labelled illustrative and do not imply they depict Zoelex's facility.
+- **Motion:** restrained reveal transitions respect reduced-motion settings.
+
+## v7 changes
+1. Replaced the previous forest-green/serif treatment with the logo's blue,
+   pale-blue, and white palette and the original straightforward sans-serif
+   typography.
+2. Reworked the homepage and all business pages around product formats,
+   manufacturing support, quality, export enquiries, and clear next steps.
+3. Removed unsupported numeric, regional, founding-year, client, capacity,
+   catalogue, and response-time placeholders from visible content.
+4. Added the supplied Zoelex logo to the shared header and footer; updated
+   navigation labels to “Formats” and “Export.”
+5. Added and credited illustrative manufacturing imagery, with captions
+   clarifying that stock photos are not Zoelex facilities.
 
 ## v5.9 changes (full-width header)
 1. **Header is now full-bleed (client direction):** the floating rounded

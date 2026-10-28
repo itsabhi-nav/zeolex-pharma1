@@ -89,7 +89,7 @@ export default function EnquiryForm({
     setSending(false);
     setStatus({
       kind: "sent",
-      text: `Your email client has opened with your enquiry pre-filled for ${SITE.email}. Press send in your mail app and we will get back within 24/48 hours. You can also reach us on WhatsApp at ${SITE.phone}.`,
+      text: `If your email app opened, review the pre-filled enquiry and press send. If it did not, email ${SITE.email} or contact us on WhatsApp at ${SITE.phone}.`,
     });
   }
 
@@ -170,8 +170,8 @@ export default function EnquiryForm({
           defaultValue={categoryNote ? `I am interested in your ${categoryNote} category.` : ""}
         />
         {!errors.message && (
-          <span className="err" id="f-message-hint" style={{ color: "var(--tx-muted)" }}>
-            Share your concept, target market and volumes, we reply within 24/48 hours.
+          <span className="err" id="f-message-hint" style={{ color: "var(--tx-paper-muted)" }}>
+            Share your product idea, target market and estimated quantity.
           </span>
         )}
         {errors.message && (

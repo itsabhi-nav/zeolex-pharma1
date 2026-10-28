@@ -16,7 +16,7 @@ export default function PageHero({
     <section className="phero">
       <div className="wrap" style={{ position: "relative" }}>
         <nav className="crumbs" aria-label="Breadcrumb">
-          <Link href="/">Zoelex Pharma</Link>
+          <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{crumb}</span>
         </nav>

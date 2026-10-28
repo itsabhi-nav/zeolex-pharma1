@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+const CONTACT_FAQS = FAQS.filter((faq) =>
+  [
+    "What is your minimum order quantity (MOQ)?",
+    "Do you offer private label manufacturing?",
+    "Can you develop a custom formulation?",
+    "Are your gummies vegan?",
+    "What is an oral thin film?",
+    "Do you export?",
+  ].includes(faq.q)
+);
+
 export default async function ContactPage({
   searchParams,
 }: {
@@ -35,7 +46,7 @@ export default async function ContactPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: FAQS.map((f) => ({
+    mainEntity: CONTACT_FAQS.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -48,27 +59,17 @@ export default async function ContactPage({
         crumb="Contact"
         title={
           <>
-            Let's Build Your <em>Next</em> Product
+            Discuss your <em>next product.</em>
           </>
         }
-        lede="Tell us about your idea and our team will respond within 24/48 hours."
+        lede="Ask about contract manufacturing, private label or a custom formulation. Share a few details and our team will review your enquiry."
       />
 
       <section className="section section--deep" style={{ paddingTop: "clamp(50px,7vw,90px)" }}>
         <div className="wrap contact-grid">
-          <Reveal variant="left">
-            <p className="eyebrow">Direct lines</p>
+          <Reveal variant="left" className="contact-info-panel">
+            <p className="eyebrow eyebrow--paper">Contact Zoelex Pharma</p>
             <ul className="info-list" style={{ marginTop: 26 }}>
-              <li>
-                <span className="k">Address</span>
-                <p>
-                  {SITE.address.line1}
-                  <br />
-                  {SITE.address.line2}
-                  <br />
-                  {SITE.address.line3}
-                </p>
-              </li>
               <li>
                 <span className="k">Phone / WhatsApp</span>
                 <p>
@@ -86,11 +87,13 @@ export default async function ContactPage({
                 </p>
               </li>
               <li>
-                <span className="k">Website</span>
+                <span className="k">Address</span>
                 <p>
-                  <a href={`https://${SITE.domain}`} target="_blank" rel="noreferrer">
-                    {SITE.domain}
-                  </a>
+                  {SITE.address.line1}
+                  <br />
+                  {SITE.address.line2}
+                  <br />
+                  {SITE.address.line3}
                 </p>
               </li>
               <li>
@@ -98,11 +101,18 @@ export default async function ContactPage({
                 <p>{SITE.hours}</p>
               </li>
             </ul>
+            <div className="contact-brief">
+              <span className="contact-brief__label">To help us prepare</span>
+              <p>
+                Include your preferred format, ingredients, target market and
+                estimated quantity.
+              </p>
+            </div>
           </Reveal>
-          <Reveal variant="right" delay={140}>
-            <p className="eyebrow">Enquiry form</p>
-            <h2 className="display h3" style={{ margin: "20px 0 28px" }}>
-              Start your enquiry.
+          <Reveal variant="right" delay={100} className="contact-form-panel">
+            <p className="eyebrow eyebrow--paper">Product enquiry</p>
+            <h2 className="display h3" style={{ margin: "16px 0 24px" }}>
+              Tell us what you’re planning.
             </h2>
             <EnquiryForm
               defaultFormat={format}
@@ -118,14 +128,14 @@ export default async function ContactPage({
         <div className="wrap" style={{ maxWidth: 960 }}>
           <div className="section-head" style={{ position: "relative" }}>
             <Reveal variant="up">
-              <p className="eyebrow eyebrow--paper">Frequently Asked Questions</p>
-              <h2 className="display h2" style={{ marginTop: 22 }}>
-                Straight answers, before you <em style={{ color: "var(--coral-deep)" }}>even ask</em>.
+              <p className="eyebrow eyebrow--paper">Common questions</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                Before you get in touch.
               </h2>
             </Reveal>
           </div>
           <Reveal variant="up">
-            <FAQAccordion items={FAQS} />
+            <FAQAccordion items={CONTACT_FAQS} />
           </Reveal>
           <Reveal variant="up" delay={110}>
             <div
