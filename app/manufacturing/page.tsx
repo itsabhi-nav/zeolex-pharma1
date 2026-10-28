@@ -53,7 +53,7 @@ export default function ManufacturingPage() {
                 <article className="home-service home-service--light">
                   <span className="format-card__number">{service.num}</span>
                   <h3>{service.name}</h3>
-                  <p>{service.value}</p>
+                  <p>{service.copy}</p>
                 </article>
               </Reveal>
             ))}

@@ -27,21 +27,23 @@ const FORMAT_POINTS: Record<Format, string[]> = {
     "Pectin-set and gelatin-free",
     "Sugar-free and low-sugar options",
     "Bottles, jars or pouches",
+    "Shape, flavour and coating options can be discussed",
   ],
   otf: [
     "Thin strips that dissolve on the tongue",
     "Individually sealed sachets",
-    "Potential actives include B12, D3 and melatonin",
+    "Potential actives include B12, D3, melatonin and caffeine",
   ],
   softgels: [
     "Suitable for oils and fat-soluble nutrients",
     "Gelatin and plant-based shell options",
     "Multiple sizes, shapes and colours",
+    "Examples include omega-3, vitamins D and E, and CoQ10",
   ],
   liposomal: [
     "Phospholipid-based encapsulation",
     "Available as liquids and sprays",
-    "Ingredient suitability confirmed by formulation review",
+    "Potential actives include vitamin C, glutathione and CoQ10",
   ],
 };
 
@@ -136,7 +138,8 @@ export default function TechnologiesPage() {
             })}
           </div>
           <p className="note note--paper" style={{ marginTop: 18 }}>
-            Ingredient suitability depends on formulation feasibility and applicable regulations.
+            Ingredient examples are for discussion only. Suitability, specifications and
+            applicable requirements are reviewed for each brief.
           </p>
         </div>
       </section>

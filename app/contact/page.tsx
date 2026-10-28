@@ -21,7 +21,10 @@ const CONTACT_FAQS = FAQS.filter((faq) =>
     "Can you develop a custom formulation?",
     "Are your gummies vegan?",
     "What is an oral thin film?",
+    "How long from sample to production?",
     "Do you export?",
+    "Which certifications do you hold?",
+    "What is the shelf life of your products?",
   ].includes(faq.q)
 );
 

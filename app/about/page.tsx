@@ -14,16 +14,19 @@ export const metadata: Metadata = {
 
 const CAPABILITIES = [
   {
-    title: "Format-led manufacturing",
-    copy: "Vegan gummies, oral thin films, softgels and liposomal formulations.",
+    title: "Four product formats",
+    copy:
+      "Gummies, oral thin films, softgels and liposomal formulations, with suitability reviewed against your brief.",
   },
   {
-    title: "Brand partnerships",
-    copy: "Contract manufacturing and private-label options for nutraceutical brands.",
+    title: "Two ways to work together",
+    copy:
+      "Explore contract manufacturing for your formulation or private-label options for your brand.",
   },
   {
-    title: "Product support",
-    copy: "Discuss formulation, samples, packaging and documentation with one team.",
+    title: "A brief-led process",
+    copy:
+      "Discuss ingredients, market, samples, packaging and documentation with the team before scope is confirmed.",
   },
 ];
 
@@ -79,9 +82,9 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <Reveal>
-              <p className="eyebrow">How we support brands</p>
+              <p className="eyebrow">Why brands work with us</p>
               <h2 className="display h2" style={{ marginTop: 18 }}>
-                Practical support at each stage.
+                A clear fit, from brief to pack.
               </h2>
             </Reveal>
           </div>
