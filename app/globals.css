@@ -4933,13 +4933,15 @@ ul.checks--paper li::before {
 }
 @media (max-width: 640px) {
   .hdr {
-    position: static;
+    position: fixed;
+    inset: 0 0 auto;
+    padding-top: env(safe-area-inset-top, 0px);
     background: #FFFFFF;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
   .phero {
-    padding-top: clamp(42px, 7vh, 68px);
+    padding-top: clamp(32px, 5vh, 46px);
   }
   .purpose-grid,
   .facility-grid {
@@ -6491,8 +6493,9 @@ ul.checks--paper li::before {
   }
   body {
     background: #FFFFFF;
+    padding-top: calc(69px + env(safe-area-inset-top, 0px));
   }
   .formats-page > .phero {
-    padding-top: clamp(38px, 6vh, 52px);
+    padding-top: clamp(32px, 5vh, 44px);
   }
 }
