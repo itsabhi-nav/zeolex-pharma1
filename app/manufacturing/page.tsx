@@ -61,6 +61,42 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
+      <section className="section section--paper facility-section" id="facility">
+        <div className="wrap">
+          <div className="section-head section-head--split">
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">Infrastructure</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                Built around specialised formats.
+              </h2>
+            </Reveal>
+            <Reveal delay={90}>
+              <p className="lede lede--paper">
+                The Pune facility supports the requirements of novel delivery
+                formats, with operating details reviewed against each product brief.
+              </p>
+            </Reveal>
+          </div>
+          <div className="facility-grid">
+            <article className="facility-card">
+              <span className="format-card__number">01</span>
+              <h3>Dedicated production lines</h3>
+              <p>For gummies, oral thin films, softgels and liposomal products.</p>
+            </article>
+            <article className="facility-card">
+              <span className="format-card__number">02</span>
+              <h3>Controlled environment zones</h3>
+              <p>Temperature and humidity zones support product-specific manufacturing needs.</p>
+            </article>
+            <article className="facility-card">
+              <span className="format-card__number">03</span>
+              <h3>In-house quality control</h3>
+              <p>A quality control laboratory supports the facility’s testing process.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--void">
         <div className="wrap split">
           <Reveal variant="left">

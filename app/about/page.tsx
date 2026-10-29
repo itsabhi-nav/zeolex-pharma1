@@ -12,22 +12,74 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const CAPABILITIES = [
+const DIFFERENTIATORS = [
   {
-    title: "Four product formats",
-    copy:
-      "Gummies, oral thin films, softgels and liposomal formulations, with suitability reviewed against your brief.",
+    title: "Format specialists",
+    copy: "Four delivery formats under one roof to support a broader product range.",
   },
   {
-    title: "Two ways to work together",
-    copy:
-      "Explore contract manufacturing for your formulation or private-label options for your brand.",
+    title: "Certified quality",
+    copy: "GMP, FSSAI and GLP-certified operations with product and batch documentation discussed for each brief.",
   },
   {
-    title: "A brief-led process",
-    copy:
-      "Discuss ingredients, market, samples, packaging and documentation with the team before scope is confirmed.",
+    title: "Vegan & clean-label options",
+    copy: "Pectin-based, gelatin-free gummies, with natural colours and flavours among the options discussed for a product brief.",
   },
+  {
+    title: "Ayurveda + modern science",
+    copy: "Traditional herbs can be considered in modern, consumer-friendly formats.",
+  },
+  {
+    title: "Flexible MOQs",
+    copy: "Minimum order quantities are discussed according to format and project requirements.",
+  },
+  {
+    title: "Speed to market",
+    copy: "Ready formulations and an experienced team can help shorten a product’s path to launch.",
+  },
+  {
+    title: "Global outlook",
+    copy: "Export documentation and destination-market requirements can be discussed early.",
+  },
+];
+
+const VALUES = [
+  {
+    title: "Quality first",
+    copy: "No shortcuts — every batch, every time.",
+  },
+  {
+    title: "Innovation",
+    copy: "We look for better ways to deliver wellness.",
+  },
+  {
+    title: "Integrity",
+    copy: "Transparent pricing, honest timelines and clear communication.",
+  },
+  {
+    title: "Partnership",
+    copy: "Your brand’s success is our success.",
+  },
+  {
+    title: "Sustainability",
+    copy: "Plant-based choices and responsible manufacturing.",
+  },
+];
+
+const MISSION_POINTS = [
+  "Develop supplement formats that improve compliance and consumer experience.",
+  "Uphold high standards of quality, safety and regulatory compliance.",
+  "Help brands launch and scale with speed and confidence.",
+  "Invest continuously in research, technology and people.",
+];
+
+const HIRING_AREAS = [
+  "R&D and Formulation",
+  "Quality Control & Assurance",
+  "Production",
+  "Regulatory Affairs",
+  "Business Development & Exports",
+  "Supply Chain",
 ];
 
 export default function AboutPage() {
@@ -57,8 +109,9 @@ export default function AboutPage() {
               audience, market and pack.
             </p>
             <p className="lede lede--paper" style={{ marginTop: 16 }}>
-              From there, our team discusses format suitability, formulation
-              feasibility, samples and production requirements.
+              We believe supplements should be as easy to take as they are to
+              make. Our focus is on formats that can make daily supplementation
+              simpler and more enjoyable; feasibility is reviewed for each brief.
             </p>
             <Link href="/contact" className="btn btn--primary btn--sm" style={{ marginTop: 24 }}>
               Talk to our team <span className="arrow">→</span>
@@ -84,12 +137,12 @@ export default function AboutPage() {
             <Reveal>
               <p className="eyebrow">Why brands work with us</p>
               <h2 className="display h2" style={{ marginTop: 18 }}>
-                A clear fit, from brief to pack.
+                The partner behind your next product.
               </h2>
             </Reveal>
           </div>
           <div className="home-service-grid">
-            {CAPABILITIES.map((item, index) => (
+            {DIFFERENTIATORS.map((item, index) => (
               <Reveal key={item.title} delay={index * 80}>
                 <article className="home-service">
                   <span className="format-card__number">
@@ -101,6 +154,75 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--paper" id="purpose">
+        <div className="wrap">
+          <div className="section-head">
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">Our purpose</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                What guides our work.
+              </h2>
+            </Reveal>
+          </div>
+          <div className="purpose-grid">
+            <Reveal>
+              <article className="purpose-card purpose-card--vision">
+                <span className="purpose-card__index">01 / VISION</span>
+                <p className="eyebrow eyebrow--paper">Our vision</p>
+                <h3 className="display h3">
+                  To be a globally trusted partner for innovative nutraceutical
+                  and Ayurvedic delivery formats.
+                </h3>
+                <span className="purpose-card__rule" aria-hidden="true" />
+              </article>
+            </Reveal>
+            <Reveal delay={70}>
+              <article className="purpose-card purpose-card--mission">
+                <span className="purpose-card__index">02 / MISSION</span>
+                <p className="eyebrow eyebrow--paper">Our mission</p>
+                <ul className="mission-list">
+                  {MISSION_POINTS.map((point, index) => (
+                    <li key={point}>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <p>{point}</p>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          </div>
+
+          <div className="values-block">
+            <div className="values-block__heading">
+              <p className="eyebrow eyebrow--paper">Our values</p>
+              <p className="values-block__intro">
+                Principles that shape how we work with products, people and partners.
+              </p>
+            </div>
+            <div className="purpose-values-grid">
+              {VALUES.map((value, index) => (
+                <article className="purpose-value-card" key={value.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{value.title}</h3>
+                  <p>{value.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <Reveal>
+            <article className="founder-card" aria-label="Founder">
+              <div className="founder-card__monogram" aria-hidden="true">VS</div>
+              <div>
+                <p className="eyebrow eyebrow--paper">Founder</p>
+                <h3 className="display h3" style={{ marginTop: 10 }}>Vidharti Singh</h3>
+                <p className="founder-card__title">Founder, Zoelex Pharma</p>
+              </div>
+            </article>
+          </Reveal>
         </div>
       </section>
 
@@ -126,22 +248,35 @@ export default function AboutPage() {
       </section>
 
       <section className="section section--deep" id="careers">
-        <div className="wrap careers-callout">
-          <div>
-            <p className="eyebrow eyebrow--paper">Careers</p>
-            <h2 className="display h2" style={{ marginTop: 16 }}>
-              Interested in working with us?
-            </h2>
-            <p className="lede lede--paper" style={{ marginTop: 12 }}>
-              Send your details and area of interest to our team.
-            </p>
+        <div className="wrap">
+          <div className="careers-callout">
+            <div>
+              <p className="eyebrow eyebrow--paper">Careers</p>
+              <h2 className="display h2" style={{ marginTop: 16 }}>
+                Grow with us.
+              </h2>
+              <p className="lede lede--paper" style={{ marginTop: 12 }}>
+                Work on products that reach people around the world. Bring
+                curiosity, ownership and a commitment to quality.
+              </p>
+              <p className="career-areas-label">
+                Areas we hire for
+              </p>
+              <ul className="career-areas">
+                {HIRING_AREAS.map((area) => <li key={area}>{area}</li>)}
+              </ul>
+              <p className="career-apply-note">
+                Send your CV with your area of interest in the subject line.
+                Ask us about current openings.
+              </p>
+            </div>
+            <a
+              href={`mailto:${SITE.careersEmail}?subject=${encodeURIComponent("Career enquiry - area of interest")}`}
+              className="btn btn--primary btn--sm"
+            >
+              {SITE.careersEmail} <span className="arrow">→</span>
+            </a>
           </div>
-          <a
-            href={`mailto:${SITE.careersEmail}?subject=${encodeURIComponent("Career enquiry")}`}
-            className="btn btn--primary btn--sm"
-          >
-            {SITE.careersEmail} <span className="arrow">→</span>
-          </a>
         </div>
       </section>
 

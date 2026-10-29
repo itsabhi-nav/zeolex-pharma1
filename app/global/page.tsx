@@ -19,6 +19,17 @@ const STEPS = [
   { title: "Plan dispatch", copy: "Align production timing and shipping arrangements for the order." },
 ];
 
+const AUDIENCES = [
+  "Nutraceutical & supplement brands",
+  "D2C & e-commerce wellness startups",
+  "Ayurvedic & herbal companies",
+  "Pharma marketing & PCD companies",
+  "Distributors & importers",
+  "Sports nutrition & fitness brands",
+  "Pharmacies & retail chains seeking private label",
+  "Doctors & clinics developing their own range",
+];
+
 export default function GlobalPage() {
   return (
     <main id="main">
@@ -26,7 +37,7 @@ export default function GlobalPage() {
         crumb="Export"
         title={
           <>
-            Export support starts with your <em>destination market.</em>
+            Made in India. <em>For markets worldwide.</em>
           </>
         }
         lede="Zoelex Pharma manufactures in Pune, India. Share your target market early so product and documentation requirements can be discussed."
@@ -66,6 +77,33 @@ export default function GlobalPage() {
         </div>
       </section>
 
+      <section className="section section--paper" id="who-we-work-with">
+        <div className="wrap">
+          <div className="section-head section-head--split">
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">Who we work with</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                Supporting different kinds of wellness businesses.
+              </h2>
+            </Reveal>
+            <Reveal delay={90}>
+              <p className="lede lede--paper">
+                Product, format and market fit are reviewed for each enquiry.
+                Share your business and intended market to discuss scope.
+              </p>
+            </Reveal>
+          </div>
+          <div className="audience-grid">
+            {AUDIENCES.map((audience, index) => (
+              <article className="audience-card" key={audience}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{audience}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section section--moss">
         <div className="wrap">
           <div className="section-head">
@@ -87,6 +125,31 @@ export default function GlobalPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--paper client-proof" id="client-stories">
+        <div className="wrap">
+          <div className="section-head">
+            <Reveal>
+              <p className="eyebrow eyebrow--paper">Client stories</p>
+              <h2 className="display h2" style={{ marginTop: 18 }}>
+                Real experiences belong here.
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal>
+            <article className="client-proof__placeholder">
+              <span className="client-proof__label">Content placeholder · not a testimonial</span>
+              <p>
+                Add an approved client quote, name, designation, company and
+                country here when the client has reviewed and authorised it.
+              </p>
+              <span className="client-proof__attribution">
+                Client logo or identity — add only with permission
+              </span>
+            </article>
+          </Reveal>
         </div>
       </section>
 

@@ -41,8 +41,9 @@ export const TECHNOLOGIES: Technology[] = [
     longIntro:
       "Thin strips that dissolve on the tongue and are designed to be taken without water.",
     features: [
-      "Portable, individually sealed sachets",
-      "An option for people who prefer not to swallow tablets",
+      "Fast-onset, convenient dosing on the go",
+      "An option for children, older adults and people who prefer not to swallow pills",
+      "Thin strips dissolve on the tongue without water",
       "Suitable for vitamins (B12, D3), melatonin, caffeine, herbal actives and more*",
       "Individually sealed sachets for freshness and portability",
     ],

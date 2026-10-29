@@ -13,6 +13,10 @@ export const SITE = {
     full:
       "Office No. 1, S. No. 50/15/1, Samarth Sankul, Dhayari, Pune, Haveli, Maharashtra 411041, India",
   },
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Zoelex%20Pharma%2C%20Office%20No.%201%2C%20Samarth%20Sankul%2C%20Dhayari%2C%20Pune%2C%20Maharashtra%20411041",
+  mapEmbedUrl:
+    "https://maps.google.com/maps?ll=18.446563,73.81818&z=15&output=embed&q=Zoelex%20Pharma%2C%20Office%20No.%201%2C%20Samarth%20Sankul%2C%20Dhayari%2C%20Pune%2C%20Maharashtra%20411041",
   phone: "+91 93117 16003",
   phoneHref: "tel:+919311716003",
   whatsapp:

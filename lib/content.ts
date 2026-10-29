@@ -9,37 +9,43 @@ export const SERVICES: Service[] = [
   {
     num: "01",
     name: "Contract Manufacturing",
-    copy: "Manufacture your approved formulation to an agreed specification.",
+    copy:
+      "Manufacture your formulation to agreed specifications, with quality testing and batch documentation discussed for the project.",
     value: "Your formulation, made to the agreed specification.",
   },
   {
     num: "02",
     name: "Private Label / White Label",
-    copy: "Choose a suitable ready formulation and launch it under your brand.",
+    copy:
+      "Explore suitable tested ready formulations for your brand. Product scope, branding and launch timing depend on the project.",
     value: "Ready-formulation options for your brand.",
   },
   {
     num: "03",
     name: "Formulation & R&D",
-    copy: "Review ingredients, format and product requirements with our team.",
+    copy:
+      "Discuss custom formulas, taste and texture development, and stability studies against your product brief.",
     value: "Discuss formulation feasibility and product requirements.",
   },
   {
     num: "04",
     name: "Packaging & Design Support",
-    copy: "Discuss packaging options for your selected format and target market.",
+    copy:
+      "Discuss bottles, jars, pouches, blister packs or sachets, label requirements and design-partner support.",
     value: "Packaging options aligned to format and market.",
   },
   {
     num: "05",
     name: "Regulatory & Documentation",
-    copy: "Review available product and batch documents for your market.",
+    copy:
+      "Available documents may include COA, MSDS, stability data, product dossiers and applicable FSSAI or export documentation.",
     value: "Product and batch documentation, as applicable.",
   },
   {
     num: "06",
     name: "Export Support",
-    copy: "Discuss destination-market requirements and export documentation.",
+    copy:
+      "Review destination-market requirements and the export documentation relevant to your product and shipment.",
     value: "Export requirements reviewed for your destination market.",
   },
 ];

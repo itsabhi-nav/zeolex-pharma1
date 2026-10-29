@@ -39,10 +39,12 @@ const FORMAT_IMAGES: Record<Format, { src: string; alt: string }> = {
 };
 
 const FLOW = [
-  { title: "Share your brief", copy: "Tell us your ingredients, audience and target market." },
-  { title: "Review feasibility", copy: "Discuss a suitable format, formulation and pack." },
-  { title: "Approve a sample", copy: "Review the proposed product before production." },
-  { title: "Plan production", copy: "Confirm specifications, quantities and timelines." },
+  { title: "Enquiry", copy: "Share your product idea, target market and estimated volumes." },
+  { title: "Consultation", copy: "Review suitable formats, formulation and packaging options." },
+  { title: "Sampling", copy: "Review a product sample against the agreed brief." },
+  { title: "Quote & agreement", copy: "Confirm project scope, pricing and planned timelines." },
+  { title: "Production", copy: "Manufacture to the agreed specifications with quality checks." },
+  { title: "Delivery", copy: "Plan dispatch with the relevant product and batch documentation." },
 ];
 
 export default function HomePage() {
@@ -280,7 +282,7 @@ export default function HomePage() {
 
       <CTABand
         title="Have a product brief?"
-        copy="Share your idea, intended market and preferred format. We’ll discuss the next steps with you."
+        copy="Share your idea, intended market and preferred format. Our team will get back within 24–48 hours with formulation options and a quote."
       />
     </main>
   );

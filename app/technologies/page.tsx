@@ -22,31 +22,6 @@ const FORMAT_KEYS: Record<Format, FormatKey> = {
   liposomal: "Liposomal",
 };
 
-const FORMAT_POINTS: Record<Format, string[]> = {
-  gummies: [
-    "Pectin-set and gelatin-free",
-    "Sugar-free and low-sugar options",
-    "Bottles, jars or pouches",
-    "Shape, flavour and coating options can be discussed",
-  ],
-  otf: [
-    "Thin strips that dissolve on the tongue",
-    "Individually sealed sachets",
-    "Potential actives include B12, D3, melatonin and caffeine",
-  ],
-  softgels: [
-    "Suitable for oils and fat-soluble nutrients",
-    "Gelatin and plant-based shell options",
-    "Multiple sizes, shapes and colours",
-    "Examples include omega-3, vitamins D and E, and CoQ10",
-  ],
-  liposomal: [
-    "Phospholipid-based encapsulation",
-    "Available as liquids and sprays",
-    "Potential actives include vitamin C, glutathione and CoQ10",
-  ],
-};
-
 const FORMAT_IMAGES: Record<Format, { src: string; alt: string }> = {
   gummies: {
     src: "/images/gummies-spill.jpg",
@@ -111,7 +86,7 @@ export default function TechnologiesPage() {
                       <h2>{format.name}</h2>
                       <p>{format.summary}</p>
                       <ul className="format-points">
-                        {FORMAT_POINTS[format.id].map((point) => (
+                        {format.features.map((point) => (
                           <li key={point}>{point}</li>
                         ))}
                       </ul>

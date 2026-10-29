@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import EnquiryForm from "@/components/EnquiryForm";
 import FAQAccordion from "@/components/FAQAccordion";
+import LocationMap from "@/components/LocationMap";
 import { FAQS } from "@/lib/content";
 import { PAGE_META, SITE } from "@/lib/site";
 
@@ -65,7 +66,7 @@ export default async function ContactPage({
             Discuss your <em>next product.</em>
           </>
         }
-        lede="Ask about contract manufacturing, private label or a custom formulation. Share a few details and our team will review your enquiry."
+        lede="Ask about contract manufacturing, private label or a custom formulation. Share a few details and our team will respond within 24–48 hours with formulation options and a quote."
       />
 
       <section className="section section--deep" style={{ paddingTop: "clamp(50px,7vw,90px)" }}>
@@ -87,6 +88,14 @@ export default async function ContactPage({
                 <span className="k">Email</span>
                 <p>
                   <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+                </p>
+              </li>
+              <li>
+                <span className="k">Website</span>
+                <p>
+                  <a href={`https://${SITE.domain}`} target="_blank" rel="noreferrer">
+                    {SITE.domain}
+                  </a>
                 </p>
               </li>
               <li>
@@ -123,6 +132,31 @@ export default async function ContactPage({
               categoryNote={category}
             />
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--paper contact-location">
+        <div className="wrap">
+          <div className="contact-location__card">
+            <div className="contact-location__details">
+              <p className="eyebrow eyebrow--paper">Visit us</p>
+              <h2 className="display h2" style={{ marginTop: 14 }}>
+                Find Zoelex Pharma.
+              </h2>
+              <address>
+                {SITE.address.line1}
+                <br />
+                {SITE.address.line2}
+                <br />
+                {SITE.address.line3}
+              </address>
+              <p className="contact-location__hours">{SITE.hours}</p>
+            </div>
+            <LocationMap
+              className="contact-location__map"
+              label="Open Zoelex Pharma's Pune location in Google Maps"
+            />
+          </div>
         </div>
       </section>
 
