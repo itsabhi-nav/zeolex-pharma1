@@ -213,14 +213,32 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <Reveal>
-            <article className="founder-card" aria-label="Founder">
-              <div className="founder-card__monogram" aria-hidden="true">VS</div>
-              <div>
-                <p className="eyebrow eyebrow--paper">Founder</p>
-                <h3 className="display h3" style={{ marginTop: 10 }}>Vidharti Singh</h3>
-                <p className="founder-card__title">Founder, Zoelex Pharma</p>
+          <Reveal variant="left" className="founder-reveal">
+            <article className="founder-card" aria-label="Founder and CEO">
+              <div className="founder-card__portrait" aria-hidden="true">
+                <span>VS</span>
+                <small>Zoelex Pharma</small>
               </div>
+              <div className="founder-card__content">
+                <p className="eyebrow eyebrow--paper">Founder</p>
+                <h3 className="display h3" style={{ marginTop: 10 }}>Vidhatri Singh</h3>
+                <p className="founder-card__title">Founder &amp; CEO, Zoelex Pharma</p>
+                <p className="founder-card__story">
+                  A pharmaceutical entrepreneur focused on formulation,
+                  regulatory pathways and scale-up.
+                </p>
+                <p className="founder-card__credentials">
+                  <span className="founder-card__credential">Experience: Zoelex Pharmaceuticals</span>
+                  <span className="founder-card__credential">Education: DY Patil</span>
+                </p>
+              </div>
+              <Link
+                className="btn btn--primary btn--sm founder-card__link"
+                href="/about/founder"
+                aria-label="Read more about Vidhatri Singh"
+              >
+                Read more <span className="arrow" aria-hidden="true">→</span>
+              </Link>
             </article>
           </Reveal>
         </div>

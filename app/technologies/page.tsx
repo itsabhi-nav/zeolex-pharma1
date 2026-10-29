@@ -43,7 +43,7 @@ const FORMAT_IMAGES: Record<Format, { src: string; alt: string }> = {
 
 export default function TechnologiesPage() {
   return (
-    <main id="main">
+    <main id="main" className="formats-page">
       <PageHero
         crumb="Product formats"
         title={
@@ -52,9 +52,18 @@ export default function TechnologiesPage() {
           </>
         }
         lede="Explore the dosage forms Zoelex Pharma manufactures, and the product requirements each can support."
-      />
+      >
+        <nav className="formats-shortcuts" aria-label="Jump to a product format">
+          {TECHNOLOGIES.map((format) => (
+            <a key={format.id} href={`#${format.id}`}>
+              <span>{format.index}</span>
+              {format.name}
+            </a>
+          ))}
+        </nav>
+      </PageHero>
 
-      <section className="section section--deep" id="formats">
+      <section className="section section--deep formats-page__formats" id="formats">
         <div className="wrap">
           <div className="section-head">
             <Reveal>
@@ -112,14 +121,14 @@ export default function TechnologiesPage() {
               );
             })}
           </div>
-          <p className="note note--paper" style={{ marginTop: 18 }}>
+          <p className="note note--paper formats-page__note">
             Ingredient examples are for discussion only. Suitability, specifications and
             applicable requirements are reviewed for each brief.
           </p>
         </div>
       </section>
 
-      <section className="section section--paper" id="categories">
+      <section className="section section--paper formats-page__categories" id="categories">
         <div className="wrap">
           <div className="section-head section-head--split">
             <Reveal>
@@ -138,7 +147,7 @@ export default function TechnologiesPage() {
           <Reveal>
             <ProductExplorer />
           </Reveal>
-          <p className="note note--paper" style={{ marginTop: 18 }}>
+          <p className="note note--paper formats-page__note">
             Examples are starting points for discussion. Final product scope depends on
             formulation feasibility and applicable regulations.
           </p>

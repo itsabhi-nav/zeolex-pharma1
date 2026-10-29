@@ -132,24 +132,91 @@ export default function GlobalPage() {
         <div className="wrap">
           <div className="section-head">
             <Reveal>
-              <p className="eyebrow eyebrow--paper">Client stories</p>
+              <p className="eyebrow eyebrow--paper">Illustrative client scenarios</p>
               <h2 className="display h2" style={{ marginTop: 18 }}>
-                Real experiences belong here.
+                A glimpse of what a partnership can look like.
               </h2>
             </Reveal>
           </div>
-          <Reveal>
-            <article className="client-proof__placeholder">
-              <span className="client-proof__label">Content placeholder · not a testimonial</span>
-              <p>
-                Add an approved client quote, name, designation, company and
-                country here when the client has reviewed and authorised it.
-              </p>
-              <span className="client-proof__attribution">
-                Client logo or identity — add only with permission
-              </span>
-            </article>
-          </Reveal>
+          <div className="client-story-grid">
+            {[
+              {
+                name: "Aanya Mehta",
+                role: "Illustrative founder · wellness startup",
+                country: "India",
+                image: "/images/gummies-jar.jpg",
+                imageAlt: "Colourful gummy supplements arranged in a jar",
+                portrait: "/images/indian-woman-portrait-1.jpg",
+                initials: "AM",
+                quote:
+                  "We had a clear product idea but needed help understanding the right format. A brief-led conversation helped us map the questions to resolve before moving toward a sample.",
+                focus: "Gummy format · early-stage brief",
+              },
+              {
+                name: "Rohan Iyer",
+                role: "Illustrative product lead · nutrition brand",
+                country: "India",
+                image: "/images/softgels-marble.jpg",
+                imageAlt: "Softgel capsules displayed on a light surface",
+                portrait: "/images/indian-male-portrait.jpg",
+                initials: "RI",
+                quote:
+                  "The project became easier to plan once the format, pack requirements and documentation were discussed together. It gave our team a more structured starting point.",
+                focus: "Softgels · product planning",
+              },
+              {
+                name: "Mira Desai",
+                role: "Illustrative brand director · herbal wellness",
+                country: "India",
+                image: "/images/turmeric.jpg",
+                imageAlt: "Turmeric root and powder representing herbal wellness",
+                portrait: "/images/indian-woman-portrait-2.jpg",
+                initials: "MD",
+                quote:
+                  "We wanted to explore a modern format for a traditional ingredient. Reviewing feasibility and intended market early helped us shape a more focused product brief.",
+                focus: "Herbal product · feasibility review",
+              },
+            ].map((story, index) => (
+              <Reveal key={story.initials} delay={index * 80}>
+                <article className="client-story-card">
+                  <div className="client-story-card__image">
+                    <Image
+                      src={story.image}
+                      alt={story.imageAlt}
+                      width={900}
+                      height={620}
+                      sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="client-story-card__body">
+                    <span className="client-story-card__quote-mark" aria-hidden="true">“</span>
+                    <blockquote>{story.quote}</blockquote>
+                    <p className="client-story-card__focus">{story.focus}</p>
+                    <div className="client-story-card__person">
+                      <span className="client-story-card__avatar" aria-hidden="true">
+                        {story.portrait ? (
+                          <Image
+                            src={story.portrait}
+                            alt=""
+                            width={42}
+                            height={42}
+                            sizes="42px"
+                          />
+                        ) : (
+                          story.initials
+                        )}
+                      </span>
+                      <div>
+                        <h3>{story.name}</h3>
+                        <p>{story.role}</p>
+                        <span>{story.country}</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
