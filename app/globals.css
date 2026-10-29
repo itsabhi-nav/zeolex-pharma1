@@ -4933,7 +4933,7 @@ ul.checks--paper li::before {
 }
 @media (max-width: 640px) {
   .hdr {
-    position: sticky;
+    position: static;
     background: #FFFFFF;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -6487,6 +6487,9 @@ ul.checks--paper li::before {
 
 @media (max-width: 640px) {
   html {
+    background: #FFFFFF;
+  }
+  body {
     background: #FFFFFF;
   }
   .formats-page > .phero {
