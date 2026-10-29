@@ -6499,3 +6499,33 @@ ul.checks--paper li::before {
     padding-top: clamp(32px, 5vh, 44px);
   }
 }
+
+/* ---------- iOS safe-area / fixed-header hardening ----------
+   On iPhone, iOS Safari (notably the iOS 26 dynamic toolbar) can offset
+   position:fixed elements while the address bar collapses. That leaves a
+   thin gap above the header, in the notch / status-bar strip, through which
+   page text scrolls. Paint the area above the header in the header colour
+   so nothing can ever show through it, and keep browser chrome and header
+   content clear of the notch itself. */
+.hdr::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 320px;
+  background: #FFFFFF;
+  pointer-events: none;
+}
+
+/* Keep the header contents out of the notch in landscape too. */
+.hdr__bar {
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* Scroll / navigation progress lines belong below the notch, not in it. */
+.progress,
+.navigation-progress {
+  top: env(safe-area-inset-top, 0px);
+}
