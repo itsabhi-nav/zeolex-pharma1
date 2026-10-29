@@ -216,12 +216,9 @@ export default function AboutPage() {
           <Reveal variant="left" className="founder-reveal">
             <article className="founder-card" aria-label="Founder and CEO">
               <div className="founder-card__portrait">
-                <Image
-                  src="/images/vidhatri-singh.jpg"
-                  alt="Vidhatri Singh, Founder and CEO of Zoelex Pharma"
-                  fill
-                  sizes="(max-width: 640px) calc(100vw - 40px), 132px"
-                />
+                <div className="founder-placeholder" aria-hidden="true">
+                  <span className="founder-placeholder__initials">VS</span>
+                </div>
               </div>
               <div className="founder-card__content">
                 <p className="eyebrow eyebrow--paper">Founder</p>
