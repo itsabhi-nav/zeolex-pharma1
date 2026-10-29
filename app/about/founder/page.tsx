@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import CTABand from "@/components/CTABand";
 import PageHero from "@/components/PageHero";
@@ -50,12 +51,15 @@ export default function FounderPage() {
         <div className="wrap">
           <div className="founder-profile__layout">
             <Reveal variant="left">
-              <div
-                className="founder-profile__portrait"
-                aria-hidden="true"
-              >
-                <span>VS</span>
-                <small>Zoelex Pharma</small>
+              <div className="founder-profile__portrait">
+                <Image
+                  src="/images/vidhatri-singh.jpg"
+                  alt="Vidhatri Singh, Founder and CEO of Zoelex Pharma"
+                  fill
+                  sizes="(max-width: 700px) 320px, (max-width: 1000px) 35vw, 420px"
+                  priority
+                />
+                <small>Founder &amp; CEO</small>
               </div>
             </Reveal>
 

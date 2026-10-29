@@ -215,9 +215,13 @@ export default function AboutPage() {
 
           <Reveal variant="left" className="founder-reveal">
             <article className="founder-card" aria-label="Founder and CEO">
-              <div className="founder-card__portrait" aria-hidden="true">
-                <span>VS</span>
-                <small>Zoelex Pharma</small>
+              <div className="founder-card__portrait">
+                <Image
+                  src="/images/vidhatri-singh.jpg"
+                  alt="Vidhatri Singh, Founder and CEO of Zoelex Pharma"
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 40px), 132px"
+                />
               </div>
               <div className="founder-card__content">
                 <p className="eyebrow eyebrow--paper">Founder</p>
@@ -226,10 +230,6 @@ export default function AboutPage() {
                 <p className="founder-card__story">
                   A pharmaceutical entrepreneur focused on formulation,
                   regulatory pathways and scale-up.
-                </p>
-                <p className="founder-card__credentials">
-                  <span className="founder-card__credential">Experience: Zoelex Pharmaceuticals</span>
-                  <span className="founder-card__credential">Education: DY Patil</span>
                 </p>
               </div>
               <Link

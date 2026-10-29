@@ -72,7 +72,7 @@ export default function SiteFooter() {
               target="_blank"
               rel="noreferrer"
             >
-              Chat on WhatsApp <span aria-hidden="true">↗</span>
+              Chat on WhatsApp <span aria-hidden="true">→</span>
             </a>
             <address>
               <span>{SITE.address.full}</span>
